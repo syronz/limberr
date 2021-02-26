@@ -1,7 +1,7 @@
 //Package limberr means limb + error, errors which can be append to the limb of main error
 /*
 	Package limberr implements error handling based on chain and parent/child
-	relation, id consist two part. generating he error and parse it.
+	relation, id consist two part. generating the error and parse it.
 
 	Generating:
 		Any error in any level (repo, service, api and model) could be entered to

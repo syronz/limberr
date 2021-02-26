@@ -13,7 +13,7 @@ func main() {
 	err := errors.New("new_error")
 	err = limberr.AddCode(err, "E10")
 	err = limberr.AddMessage(err, "a_message")
-	err = limberr.AddType(err, "regular_teype", "title")
+	err = limberr.AddType(err, "regular_type", "title")
 	err = limberr.AddPath(err, "/path/to/somewhere")
 	err = limberr.AddStatus(err, 403)
 	err = limberr.AddDomain(err, "base")

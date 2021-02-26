@@ -10,7 +10,7 @@ func TestParse(t *testing.T) {
 	err := errors.New("new_error")
 	err = AddCode(err, "E10")
 	err = AddMessage(err, "a_message")
-	err = AddType(err, "regular_teype", "title")
+	err = AddType(err, "regular_type", "title")
 	err = AddPath(err, "/path/to/somewhere")
 	err = AddStatus(err, 403)
 	err = AddDomain(err, "base")
