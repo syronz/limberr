@@ -57,3 +57,4 @@ InvalidParam("age", "age should be more than %v", 18).
 ## Dictionary
 By combining this package with dict and create a manual function as translator you can have multi
 language error generator
+[github.com/syronz/dict](https://github.com/syronz/dict)
