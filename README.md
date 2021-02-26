@@ -87,3 +87,6 @@ Final format be something like this
 By combining this package with dict and create a manual function as translator you can have multi
 language error generator
 [github.com/syronz/dict](https://github.com/syronz/dict)
+
+## Example in project
+You can find complete solution with dactionary implementation in [omono](https://github.com/syronz/omono) project 
