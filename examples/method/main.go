@@ -27,5 +27,5 @@ func main() {
 	fmt.Println("parsed error: ", parsedErr)
 	fmt.Println("statusCode: ", statusCode)
 	jsonParsedErr, _ := json.MarshalIndent(parsedErr, "", "    ")
-	fmt.Println("statusCode: ", string(jsonParsedErr))
+	fmt.Println("error: ", string(jsonParsedErr))
 }

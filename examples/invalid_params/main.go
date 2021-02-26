@@ -28,6 +28,8 @@ func main() {
 		Message("a_message %v %v", "param1", "param2").
 		Custom(ForbiddenErr).
 		Path("/path/to/somewhere").
+		InvalidParam("name", "name is required").
+		InvalidParam("age", "age should be more than %v", 18).
 		Build()
 
 	// you can define translator to get the params for message, so the flexible
