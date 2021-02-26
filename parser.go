@@ -63,6 +63,7 @@ func Parse(err error, translator Translator) (int, error) {
 	return status, &final
 }
 
+// GetCustom extract custom error from error's interface
 func GetCustom(err error) (customError CustomError) {
 	for err != nil {
 		switch e := err.(type) {
@@ -109,6 +110,7 @@ func GetCustom(err error) (customError CustomError) {
 	return
 }
 
+// ApplyCustom add custom errors to the error's interface
 func ApplyCustom(err error, theme ErrorTheme, errPage string) error {
 	err = AddType(err, errPage+theme.Type, theme.Title)
 	err = AddDomain(err, theme.Domain)

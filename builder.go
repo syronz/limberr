@@ -2,10 +2,12 @@ package limberr
 
 import "errors"
 
+//LimbErr is main type for controlling the package
 type LimbErr struct {
 	err error
 }
 
+// New return an initiate of the LimbErr
 func New(errStr string, code ...string) *LimbErr {
 	var limbErr LimbErr
 	err := errors.New(errStr)

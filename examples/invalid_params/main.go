@@ -8,11 +8,13 @@ import (
 	"github.com/syronz/limberr"
 )
 
+// Constant error's type
 const (
 	Nil limberr.CustomError = iota
 	ForbiddenErr
 )
 
+//UniqErrorMap can be used for finding the error type instantly
 var UniqErrorMap limberr.CustomErrorMap
 
 func main() {

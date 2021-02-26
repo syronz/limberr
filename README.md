@@ -1,6 +1,8 @@
 # limberr
 limberr is a Go package for handling errors. It supports RFC 7807
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/syronz/limberr)](https://goreportcard.com/report/github.com/syronz/limberr)
+
 ## Usage 
 there is two way for using this package simple way is using direct method
 

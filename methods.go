@@ -1,7 +1,6 @@
 package limberr
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -13,6 +12,10 @@ type WithCode struct {
 
 func (p *WithCode) Error() string { return fmt.Sprint(p.Err) }
 
+// AddCode add custom code to the error, it is useful for tracing an error
+// if error pass from different method or function you can gave it multiple error
+// and in case error happened easily we can trace which function's passed that error
+// similar to panic
 func AddCode(err error, code string) error {
 	return &WithCode{
 		Err:  fmt.Errorf("#%v, %w", code, err),
@@ -29,6 +32,7 @@ type WithMessage struct {
 
 func (p *WithMessage) Error() string { return fmt.Sprint(p.Err) }
 
+// AddMessage add custom message to error, params can be used inside the translator function
 func AddMessage(err error, msg string, params ...interface{}) error {
 	return &WithMessage{
 		Err:    err,
@@ -46,6 +50,7 @@ type WithType struct {
 
 func (p *WithType) Error() string { return fmt.Sprint(p.Err) }
 
+// AddType used for adding type to the error
 func AddType(err error, errType string, title string) error {
 	return &WithType{
 		Err:   err,
@@ -62,6 +67,7 @@ type WithPath struct {
 
 func (p *WithPath) Error() string { return fmt.Sprint(p.Err) }
 
+// AddPath is used for adding path to the error, useful for REST API
 func AddPath(err error, path string) error {
 	return &WithPath{
 		Err:  err,
@@ -77,6 +83,7 @@ type WithStatus struct {
 
 func (p *WithStatus) Error() string { return fmt.Sprint(p.Err) }
 
+// AddStatus can be used for adding HTTP status code like 404 or etc
 func AddStatus(err error, status int) error {
 	return &WithStatus{
 		Err:    err,
@@ -92,6 +99,7 @@ type WithDomain struct {
 
 func (p *WithDomain) Error() string { return fmt.Sprint(p.Err) }
 
+// AddDomain separate different domains of application. In case you don't need it just ignore it
 func AddDomain(err error, domain string) error {
 	return &WithDomain{
 		Err:    err,
@@ -109,10 +117,11 @@ type WithInvalidParam struct {
 
 func (p *WithInvalidParam) Error() string { return fmt.Sprint(p.Err) }
 
+// AddInvalidParam is used for specify a field that has an error
 func AddInvalidParam(err error, field, reason string, params ...interface{}) error {
 	var gErr error
 	if err == nil {
-		gErr = errors.New(fmt.Sprintf(reason, params...))
+		gErr = fmt.Errorf(fmt.Sprintf(reason, params...))
 	} else {
 		gErr = err
 	}
@@ -134,6 +143,7 @@ type WithCustom struct {
 
 func (p *WithCustom) Error() string { return fmt.Sprint(p.Err) }
 
+// SetCustom is used for adding a custom error to the error and it reduce size of the code
 func SetCustom(err error, custom CustomError) error {
 	return &WithCustom{
 		Err:    err,
